@@ -11,74 +11,104 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#080808] py-16 border-t border-white/5">
-      <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
-        
-        {/* Back to Top Button */}
-        <button 
-          onClick={scrollToTop}
-          className="mb-12 p-3 rounded-full bg-white/5 border border-white/10 hover:border-[#B44CFF]/50 transition-all group"
-        >
-          <ArrowUp size={20} className="text-gray-500 group-hover:text-white transition-colors" />
-        </button>
+    <footer className="bg-background-primary border-t border-white/5 relative overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-purple/10 rounded-full blur-3xl opacity-50" />
+        <div className="absolute bottom-0 right-0 -translate-y-1/2 w-96 h-96 bg-gradient-blue/10 rounded-full blur-3xl opacity-50" />
+      </div>
 
-        {/* Branding */}
-        <div className="mb-8">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-2 h-2 bg-gradient-to-r from-[#B44CFF] to-[#FF7A18] rounded-full" />
-            <span className="text-2xl font-bold tracking-tighter font-heading text-white">
-              Sagar <span className="text-gray-500 font-light">Pandey</span>
-            </span>
-          </div>
-          <p className="text-gray-400 text-sm max-w-sm mx-auto leading-relaxed italic">
-            "Automating the future, one pipeline at a time."
-          </p>
-        </div>
-
-        {/* Navigation Links */}
-        <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10">
-          {['Home', 'About', 'Skills', 'Projects'].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 hover:text-white transition-colors"
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
-
-        {/* Social Connect */}
-        <div className="flex gap-6 mb-12">
-          {[
-            { icon: Github, href: 'https://github.com/MySagarGitHub', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://www.linkedin.com/in/sagar-panday-6a12192a4', label: 'LinkedIn' },
-            { icon: Mail, href: 'mailto:pandaysagar2004@gmail.com', label: 'Email' },
-          ].map((social, i) => (
-            <a
-              key={i}
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-[#B44CFF] transition-all duration-300 transform hover:-translate-y-1"
-              aria-label={social.label}
-            >
-              <social.icon size={22} />
-            </a>
-          ))}
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="w-full pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] font-medium tracking-widest text-gray-600 uppercase">
-          <p>© {currentYear} All Rights Reserved</p>
+      <div className="section-container relative z-10">
+        <div className="py-20 flex flex-col items-center text-center space-y-12">
           
-          <div className="flex items-center gap-1">
-            <span>Made with</span>
-            <Heart size={10} className="text-[#FF7A18] fill-[#FF7A18]" />
-            <span>in Kathmandu</span>
+          {/* Back to Top Button */}
+          <button 
+            onClick={scrollToTop}
+            className="p-3.5 rounded-full bg-gradient-to-br from-gradient-purple/20 to-gradient-blue/20 border border-white/20 hover:border-white/40 hover:from-gradient-purple/30 hover:to-gradient-blue/30 transition-all hover:scale-110 duration-300 group"
+            aria-label="Back to top"
+          >
+            <ArrowUp size={20} className="text-white group-hover:text-gradient-primary transition-colors" />
+          </button>
+
+          {/* Brand Section */}
+          <div className="space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <div className="w-2 h-2 bg-gradient-to-r from-gradient-purple to-gradient-blue rounded-full animate-pulse" />
+              <h2 className="text-2xl md:text-3xl font-heading font-bold">
+                <span className="text-white">Sagar</span>
+                <span className="text-text-muted font-light ml-2">Pandey</span>
+              </h2>
+              <div className="w-2 h-2 bg-gradient-to-r from-gradient-blue to-gradient-purple rounded-full animate-pulse delay-100" />
+            </div>
+
+            <p className="text-text-muted italic text-sm max-w-xs mx-auto">
+              "Automating infrastructure, building scalable systems, crafting DevOps pipelines."
+            </p>
           </div>
 
-          <p className="text-gray-500">BSc. CSIT &apos;26</p>
+          {/* Navigation Links */}
+          <nav className="flex flex-wrap justify-center gap-6 md:gap-10">
+            {[
+              { label: 'Home', href: '#home' },
+              { label: 'About', href: '#about' },
+              { label: 'Projects', href: '#projects' },
+              { label: 'Contact', href: '#contact' },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-xs font-bold uppercase tracking-widest text-text-muted hover:text-white transition-colors duration-300 relative group"
+              >
+                {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-gradient-purple to-gradient-blue group-hover:w-full transition-all duration-300" />
+              </a>
+            ))}
+          </nav>
+
+          {/* Social Links */}
+          <div className="flex gap-5">
+            {[
+              { icon: Github, href: 'https://github.com/MySagarGitHub', label: 'GitHub', color: 'hover:text-white' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/sagar-panday-6a12192a4', label: 'LinkedIn', color: 'hover:text-blue-400' },
+              { icon: Mail, href: 'mailto:pandaysagar2004@gmail.com', label: 'Email', color: 'hover:text-red-400' },
+            ].map((social, i) => (
+              <a
+                key={i}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-3 rounded-xl bg-background-card hover:bg-gradient-to-br hover:from-gradient-purple/30 hover:to-gradient-blue/30 border border-white/10 hover:border-white/30 transition-all hover:scale-110 duration-300 group/social ${social.color}`}
+                aria-label={social.label}
+              >
+                <social.icon size={20} className="text-text-muted group-hover/social:text-white transition-colors" />
+              </a>
+            ))}
+          </div>
+
+          {/* Divider */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+          {/* Footer Info */}
+          <div className="w-full space-y-4">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs font-medium text-text-muted uppercase tracking-wider">
+              <p>© {currentYear} Sagar Pandey. All Rights Reserved.</p>
+              
+              <div className="flex items-center gap-2">
+                <span>Made with</span>
+                <Heart size={14} className="text-red-500 fill-red-500 animate-pulse" />
+                <span>from Kathmandu, Nepal</span>
+              </div>
+
+              <p className="text-gradient bg-gradient-to-r from-gradient-purple to-gradient-blue bg-clip-text text-transparent font-semibold">
+                BSc. CSIT &apos;26
+              </p>
+            </div>
+
+            {/* Additional Note */}
+            <p className="text-[11px] text-text-muted/60 italic">
+              Focused on DevOps • Cloud Infrastructure • Automation
+            </p>
+          </div>
         </div>
       </div>
     </footer>

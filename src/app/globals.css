@@ -2,84 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base styles */
+/* ================= BASE ================= */
 body {
-  color: white;
-  background-color: #0E0E0E;
+  color: #E5E7EB;
+  background-color: #0B0D12;
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
 }
 
-/* Heading styles */
+/* ================= HEADINGS ================= */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', sans-serif;
-  font-weight: bold;
+  font-weight: 700;
+  color: #FFFFFF;
 }
 
-/* Gradient Text */
+/* ================= GRADIENT TEXT ================= */
 .gradient-text {
-  background: linear-gradient(90deg, #B44CFF 0%, #FF7A18 100%);
+  background: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glass Card */
+/* ================= GLASS CARD ================= */
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
 }
 
-/* Button Styles */
+/* ================= BUTTONS ================= */
 .btn-primary {
-  background: linear-gradient(90deg, #B44CFF 0%, #FF7A18 100%);
+  background: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 100%);
   color: white;
   font-weight: 600;
   padding: 1rem 2rem;
   border-radius: 9999px;
   transition: all 0.3s ease;
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.35);
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
-  box-shadow: 0 0 20px rgba(180, 76, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.55);
 }
 
+/* Secondary button (used rarely now) */
 .btn-secondary {
-  border: 2px solid white;
-  color: white;
-  font-weight: 600;
-  padding: 1rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #E5E7EB;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
   border-radius: 9999px;
-  background: transparent;
+  background: rgba(255, 255, 255, 0.03);
   transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Navigation Link */
-.nav-link {
-  color: #9A9A9A;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
+  background: rgba(255, 255, 255, 0.08);
   color: white;
 }
 
+/* ================= NAV LINKS ================= */
+.nav-link {
+  color: #9CA3AF;
+  transition: color 0.25s ease;
+}
+
+.nav-link:hover {
+  color: #E5E7EB;
+}
+
 .nav-link.active {
-  background: linear-gradient(90deg, #B44CFF 0%, #FF7A18 100%);
+  background: linear-gradient(90deg, #8B5CF6 0%, #3B82F6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* Section Container */
+/* ================= SECTION CONTAINER ================= */
 .section-container {
   max-width: 1280px;
   margin-left: auto;
@@ -102,34 +106,34 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Profile Image */
+/* ================= PROFILE IMAGE ================= */
 .profile-image {
   width: 10rem;
   height: 10rem;
   border-radius: 50%;
-  border: 6px solid #E6E6E6;
+  border: 4px solid rgba(139, 92, 246, 0.35);
 }
 
-/* Custom Scrollbar */
+/* ================= SCROLLBAR ================= */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #141414;
+  background: #0F1117;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #B44CFF, #FF7A18);
-  border-radius: 4px;
+  background: linear-gradient(to bottom, #8B5CF6, #3B82F6);
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   opacity: 0.9;
 }
 
-/* Selection */
+/* ================= TEXT SELECTION ================= */
 ::selection {
-  background: rgba(180, 76, 255, 0.3);
+  background: rgba(139, 92, 246, 0.35);
   color: white;
 }
